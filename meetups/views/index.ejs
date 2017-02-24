@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head> <% include partials/templates/head.ejs %>
+  </head>
+  <body class="<%= page %>">
+    <% include partials/templates/header.ejs %>
+    <section class="layout">
+        <div class="primary" ng-view></div> <!-- primary -->
+        <aside class="secondary">
+               <% include partials/content/nextmeeting.ejs %>
+               <% include partials/content/artworklist.ejs %>
+        </aside> <!-- secondary -->
+    </section>
+    <% include partials/templates/footer.ejs %>
+    <% include partials/templates/jsdefaults.ejs %>
+  </body>
+</html>
