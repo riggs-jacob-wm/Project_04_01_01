@@ -1,18 +1,29 @@
-<!DOCTYPE html>
 <article class="speakerslist">
     <section class="layout">
         <div class="speakers">
-           <ul>
-               <article class="artistlist" ng-repeat="item in artists">
-                   <a href="#!/{{artists.indexOf(item)}}">
-                       <img class="artist cf" ng-src="images/speakers/{{item.shortname}}_tn.jpg" alt="Photo of {{item.name}}">
-                       <div>
-                           <h2>{{item.name}}</h2>
-                           <h3>{{item.title}}</h3>
-                       </div>
-                   </a>
+               <article class="artist group" ng-repeat="item in artists">
+                   <h3>
+                       {{item.title}}
+                       <span class="small">with
+                            <a ng-href="#!/speakers/{{item.shortname}}">
+                                {{item.name}}
+                            </a>
+                       </span>
+                   </h3>
+
+                   <p>
+                     <a ng-href="#!/speakers/{{item.shortname}}">
+                            <img class="speaker" ng-src="/images/speakers/{{item.shortname}}_tn.jpg" alt="Photo of {{item.name}}">
+                     </a>
+                       <ng-show ng-show="speakers">
+                           {{item.summary}}
+                       </ng-show>
+                       <ng-show ng-show="details">
+                           <ng-bind-html ng-bind-html="item.description">
+                           </ng-bind-html>
+                       </ng-show>
+                   </p>
                </article>
-           </ul>
         </div>
     </section>
 </article>

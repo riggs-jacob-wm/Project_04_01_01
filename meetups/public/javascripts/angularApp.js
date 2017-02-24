@@ -1,18 +1,24 @@
 var myApp = angular.module('myApp', [
     'ngRoute',
-    'artistControllers'
+    'artistControllers',
+    'ngSanitize'
 ]);
 
 myApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider.
-        when('/homeinfo', {
+        when('/home', {
         templateUrl : "partials/template/home.ejs",
         controller  : "speakerListController"
     }).
     when('/speakers', {
-        templateUrl : "partials/speakers.ejs"
+        templateUrl : "partials/template/speakers.ejs",
+        controller  : "speakersListController"
+    }).
+    when('/speakers/:speakerId', {
+        templateUrl : "partials/template/speakers.ejs",
+        controller  : "speakersController"
     }).
         otherwise({
-           redirectTo: '/homeinfo'
+           redirectTo: '/home'
         });
 }]);
