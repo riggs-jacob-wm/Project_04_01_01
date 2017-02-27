@@ -12,11 +12,11 @@ myApp.config(['$routeProvider', function($routeProvider) {
     }).
     when('/speakers', {
         templateUrl : "partials/template/speakers.ejs",
-        controller  : "speakersListController"
-    }).
-    when('/speakers/:speakerId', {
-        templateUrl : "partials/template/speakers.ejs",
         controller  : "speakersController"
+    }).
+    when('/speakers/:speakerid', {
+        templateUrl : "partials/template/speakers.ejs",
+        controller  : "speakersDetailsController"
     }).
         otherwise({
            redirectTo: '/home'
